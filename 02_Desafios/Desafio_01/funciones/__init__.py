@@ -13,11 +13,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .funciones import (
-    utn_filtrar_heroes_genero, utn_mostrar_heroe_mayor_altura,
+#FUNCIONES A DESARROLLAR 
+from .funciones_utn import (
+    utn_filtrar_heroes_genero, utn_mostrar_mayor_altura,
     utn_mostrar_heroes_mas_fuertes, utn_mostrar_identidades_heroes,
     utn_mostrar_nombres_heroes, utn_mostrar_heroes_poder_superior_promedio,
     utn_mostrar_heroes_mas_debiles
 )
 
-from .auxiliares import play_sound
+
+#DEBEMOS IMPORTAR EN EL INIT LAS FUNCIONES DE LOS MODULOS DEL MISMO PAQUETE
+#PARA QUE SEA MAS FACIL IMPORTAR LUEGO DESDE OTROS PAQUETES
+
+from .auxiliares import play_sound, limpiar_pantalla, obtener_maximo
+
+#modulos y funciones creadas
+from .salida_consola import mostrar_menu

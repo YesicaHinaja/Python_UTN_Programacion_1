@@ -31,8 +31,43 @@ def play_sound():
     plays the sound.
     """
     mixer.init()
-    mixer.music.load('./assets/snd/select.mp3')
+    mixer.music.load('02_Desafios/Desafio_01/assets/snd/select.mp3')
     mixer.music.set_volume(0.4)
     mixer.music.play()
     time.sleep(0.4)
 
+#FUNCIONES DESAROLLADAS
+
+def obtener_maximo (lista_numeros: list)-> float:
+    """
+    obtiene el valor maximo de los elementos de lista y lo devuelve parseado
+    Args:
+        lista_numeros (list): lista de numeros
+    Returns:
+        float: el valor maximo parseado
+    """
+    if not lista_numeros:
+        print ("ERROR. LISTA VACIA")
+        return None
+    else: 
+        numero_max = lista_numeros[0]
+        for numero in lista_numeros:
+            if numero > numero_max:
+                numero_max = numero
+            
+        return float(numero_max)
+
+#falta documentar
+def promedio(lista_numeros: list)-> float:
+    suma = 0
+    cantidad = len(lista_numeros)
+    for numero in lista_numeros:
+        suma += numero
+    
+    promedio = suma / cantidad
+    return promedio
+
+def obtener_mitad_de_maximo (lista_numeros: float) ->int:
+    maximo = obtener_maximo(lista_numeros)
+    mitad = maximo / 2
+    return mitad
