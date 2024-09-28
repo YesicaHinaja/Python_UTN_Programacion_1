@@ -15,7 +15,7 @@
 
 import pygame.mixer as mixer
 import time
-
+from data_heroes import lista_poder_heroes
 
 def limpiar_pantalla():
     """
@@ -31,7 +31,7 @@ def play_sound():
     plays the sound.
     """
     mixer.init()
-    mixer.music.load('02_Desafios/Desafio_01/assets/snd/select.mp3')
+    mixer.music.load(r'C:\Users\yesic.DESKTOP-63K61PJ\OneDrive\Escritorio\Python_UTN_Programacion_1\02_Desafios\Desafio_01\assets\snd\select.mp3')
     mixer.music.set_volume(0.4)
     mixer.music.play()
     time.sleep(0.4)
@@ -68,6 +68,67 @@ def promedio(lista_numeros: list)-> float:
     return promedio
 
 def obtener_mitad_de_maximo (lista_numeros: float) ->int:
+    
     maximo = obtener_maximo(lista_numeros)
     mitad = maximo / 2
     return mitad
+
+#FUNCIONES DE ORDENAMIENTO
+
+
+
+
+def bubble_sort (lista_numerica: list, lista_nombres:list)-> None:
+    for indice_Uno in range(len(lista_numerica) -1): 
+        for indice_Dos in range (indice_Uno + 1, len(lista_numerica)):
+            if lista_numerica[indice_Uno] > lista_numerica[indice_Dos]: 
+                    lista_numerica[indice_Uno], lista_numerica[indice_Dos] =\
+                    lista_numerica[indice_Dos], lista_numerica[indice_Uno]
+
+                    lista_nombres[indice_Uno], lista_nombres[indice_Dos] =\
+                    lista_nombres[indice_Dos], lista_nombres[indice_Uno]
+
+
+
+
+def selection_sort (lista_numerica:list[int]):
+    for indice_Uno in range(len(lista_numerica)-1):
+        indice_minimo = indice_Uno 
+        for indice_Dos in range(indice_Uno + 1, len(lista_numerica)):
+            if lista_numerica[indice_Dos]<lista_numerica[indice_minimo]:
+                indice_minimo = indice_Dos
+        if indice_minimo != indice_Uno:
+            lista_numerica[indice_Uno], lista_numerica[indice_Dos] =  lista_numerica[indice_Dos], lista_numerica[indice_Uno]
+
+
+
+def quick_sort (nombres: list, identidades: list, generos: list, poderes:list, alturas:list)-> list[int]:
+    if len(poderes)<2:
+        return poderes
+    pivote = poderes.pop() 
+    lista_poderes_mas_chicos = []
+    lista_nom_mas_chicos = []
+    lista_ident_mas_chicos = []
+    lista_generos_mas_chicos = []
+    lista_alturas_mas_chicos = []
+
+    lista_poderes_mas_grandes = []
+    lista_nom_mas_grandes = []
+    lista_ident_mas_grandes = []
+    lista_generos_mas_grandes = []
+    lista_alturas_mas_grandes = []
+    for numero in poderes:
+        if numero <= pivote:
+            lista_poderes_mas_chicos.append(numero)
+            lista_nom_mas_chicos.append(nombres)
+            lista_ident_mas_chicos.append(identidades)
+            lista_generos_mas_chicos.append(generos)
+            lista_alturas_mas_chicos.append(alturas)
+        else:
+            lista_poderes_mas_grandes.append(numero)
+            lista_nom_mas_grandes.append(nombres)
+            lista_ident_mas_grandes.append(identidades)
+            lista_generos_mas_grandes.append(generos)
+            lista_alturas_mas_grandes.append(alturas)
+
+        return quick_sort(lista_poderes_mas_chicos) + [pivote] + quick_sort(lista_poderes_mas_grandes) 

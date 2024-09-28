@@ -1,4 +1,4 @@
-from .auxiliares import obtener_maximo, promedio, obtener_mitad_de_maximo
+from .auxiliares import obtener_maximo, promedio, obtener_mitad_de_maximo, quick_sort, bubble_sort, selection_sort
 
 
 def utn_mostrar_nombres_heroes(lista_nombres:list)->None:
@@ -74,3 +74,14 @@ def utn_mostrar_heroes_mas_debiles(nombres: list, identidades: list, generos: li
             mensaje = f"nombre: {nombres[indice]} |  identidad: {identidades[indice]} |   genero: {generos[indice]} |    poder: {poderes[indice]} |    altura: {alturas[indice]}"
             print (mensaje)
 
+#FUNCIONES CON ORDENAMIENTO(corregir)
+
+def utn_mostrar_heroes_poder_ascendente (poderes: list, nombres:list):
+    bubble_sort (nombres, poderes)
+    for indice in range(len(poderes)):
+            print (f"Nombre : {nombres[indice]} | poder: {poderes[indice]}")
+
+def utn_mostrar_heroes_altura_descendente (nombres: list, identidades: list, generos: list, poderes:list, alturas:list)->None:
+    pass
+def utn_mostrar_heroes_asc_o_des (nombres: list, identidades: list, generos: list, poderes:list, alturas:list)->None:
+    pass

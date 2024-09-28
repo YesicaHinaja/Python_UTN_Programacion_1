@@ -1,6 +1,7 @@
 from funciones import mostrar_menu, play_sound, limpiar_pantalla #IMPORTAMOS FUNCIONES DE OTROS PAQUETES
 from validaciones import  validar_opcion
-from funciones.funciones_utn import utn_mostrar_mayor_altura, utn_mostrar_identidades_heroes, utn_mostrar_nombres_heroes, utn_mostrar_heroes_mas_fuertes, utn_mostrar_heroes_poder_superior_promedio, utn_filtrar_heroes_genero, utn_mostrar_heroes_mas_debiles
+from funciones.funciones_utn import utn_mostrar_mayor_altura, utn_mostrar_identidades_heroes, utn_mostrar_nombres_heroes, utn_mostrar_heroes_mas_fuertes,\
+    utn_mostrar_heroes_poder_superior_promedio, utn_filtrar_heroes_genero, utn_mostrar_heroes_mas_debiles,  utn_mostrar_heroes_poder_ascendente
 
 def utn_heroes_app (lista_nombres: list, lista_generos: list, lista_identidades: list, lista_poderes: list, lista_alturas: list):
 
@@ -38,7 +39,7 @@ def utn_heroes_app (lista_nombres: list, lista_generos: list, lista_identidades:
                 utn_mostrar_heroes_mas_debiles(lista_nombres, lista_identidades,lista_generos, lista_poderes, lista_alturas)
                 
             case 10: 
-                pass
+                utn_mostrar_heroes_poder_ascendente (lista_poderes, lista_nombres)
             case 11:
                 pass
             case 12: 
